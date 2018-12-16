@@ -26,7 +26,7 @@ class Network(object):
             errors.append(self.backprop(dL))
             errors.append(dL)
             
-            # now I need to calculate the gradient of the cost function for each layer
+            # gradient of the cost function for each layer is calculated in the same step as the change in weights and biases in each layer
             self.weights[1] = self.weights[1] - (eta/len(x)) * np.dot(dL,self.a[0].T)
             self.weights[0] = self.weights[0] - (eta/len(x)) * np.dot(errors[0],x)
             
